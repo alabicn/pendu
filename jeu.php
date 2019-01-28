@@ -1,17 +1,35 @@
 <?php
 
     session_start();
-     
+
+    if (isset ($_POST{'niveau'}))
+    {
+        if ($_POST{'niveau'} == 1)
+        {
+            $mot_a_trouver = array("maternelle","tableaux","tabouret","rechauffer","coloriage","rayure","peinture","pinceau",
+                                    "cartable","bibliotheque","dictionnaire","catalogue","enveloppe","etiquette","alphabet","appareil","camescope",
+                                    "difference","magnetoscope","orchestre","ordinateur","telecommande","xylophone","recommencer","travailler",
+                                    "directrice","mensonge","progresser","expliquer", "handicape");
+                                    shuffle($mot_a_trouver);
+        }else
+         
+    {    $mot_a_trouver = array("creperies","football","kamikazes","tracteurs","heliocoidale","chansonnier","ascensions","orthodoxes",
+                               "hydroliques","maisonettes","abasourdis","abattons","abjectes","abjuriez","abondaient","abstinents","academiques","raccourcis","accoutumés",
+                               "acheminons","automatismes","chromosomes",);
+                               shuffle($mot_a_trouver);
+        }
+    
+    }
+
     $_SESSION['motAffiche'] = array();
     $_SESSION['lettresJouees'] = array();
-    $_SESSION['mot'] = "";
+    $_SESSION['mot'] = strtoupper($mot_a_trouver{0});
     $_SESSION['nbTentatives'] = 0;
     $_SESSION['longueurMot'] = 0;
     $_SESSION['nbLettresTrouvees'] = 0;
  
-    $_SESSION['mot'] = $_POST['mot'];
  
-    $_SESSION['longueurMot'] = strlen($_SESSION['mot']);
+    $_SESSION['longueurMot'] = strlen($_SESSION{'mot'});
      
     for($i = 1 ; $i <= $_SESSION['longueurMot'] ; $i++)
     {
