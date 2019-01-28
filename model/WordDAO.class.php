@@ -9,11 +9,11 @@
 			parent::connexion();
 		}
 		
-		public function getAllWords(){
-			//$sql = "SELECT * FROM word w, category c WHERE w.id_word = c.id_category ORDER BY name_word DESC";
-			$sql = "SELECT * FROM word";
+		public function getAllWords($idcat){
+			$sql = "SELECT * FROM word w WHERE w.category_id = :id ORDER BY name_word DESC";
+			
 			$results = parent::executeQuery(
-							$sql
+							$sql, array("id" => $idcat)
 						);
 			$words = array();
 			

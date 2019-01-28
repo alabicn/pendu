@@ -6,17 +6,26 @@ require_once "model/WordDAO.class.php";
 require_once "model/entity/Word.class.php";
 
     
-
     $dao = new WordDAO();
-    $donnees = $dao->getAllWords();
-   
+
+    if($_POST['niveau'] == 1){
+        $donnees = $dao->getAllWords(1);
+
+    }elseif($_POST['niveau'] == 2){
+        $donnees = $dao->getAllWords(2);
+
+    }else($_POST['niveau'] == 3){
+        $donnees = $dao->getAllWords(3)
+    };    
+
+
     $pos = array_rand($donnees, 1);
 
     $mot_a_trouver = $donnees[$pos];
 
     $_SESSION['motAffiche'] = array();
     $_SESSION['lettresJouees'] = array();
-    $_SESSION['mot'] = strtoupper($mot_a_trouver->getName());
+    $_SESSION['mot'] = mb_strtoupper($mot_a_trouver->getName());
     $_SESSION['nbTentatives'] = 0;
     $_SESSION['longueurMot'] = 0;
     $_SESSION['nbLettresTrouvees'] = 0;
@@ -56,7 +65,7 @@ require_once "model/entity/Word.class.php";
                                 
                                 for($i = 0 ; $i < 26 ; $i++)
                                     {
-                                        echo " <a href=\"jeu1.php?lettre=$i\" class=\"link\">", chr(65 + $i), "</a> ";
+                                        echo " <a href=\"jeu1.php?lettre=$i\" class=\"link\">" . chr(65 + $i) . "</a>";
                                     }
                                 echo "<br>
                         </h3>
