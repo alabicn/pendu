@@ -1,0 +1,51 @@
+body {
+    background-color: mintcream;
+    width: 100%;
+}
+
+#formualire {
+    align-content: center;
+}
+
+h3{
+    text-align: center;
+    color: silver;
+}
+
+input[type=password] {
+    background-color: indianred;
+    border: none;
+  }
+
+input[type=password]:focus {
+    border: 5px solid black;  
+}
+
+.link {
+    color: forestgreen;
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h4{
+    text-align: center;
+    color: steelblue;
+}
+
+.btn--danger {
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.btn--success{
+    border-radius: 10px;
+}
+
+a:link {
+    text-decoration: none;
+  }
+
+button a {
+    color: white;
+  }
+
