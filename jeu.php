@@ -72,6 +72,5 @@ require_once "model/entity/Word.class.php";
                         <button class=\"btn--danger\"><a href=\"index.html\">Réessayez ?</a></button>
                     </div>  
                 </body>
-            </html>";
-     
+            </html>";  
 ?>
